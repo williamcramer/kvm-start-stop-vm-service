@@ -1,0 +1,20 @@
+[Unit]
+Description=Start/shutdown libvirt guests in order
+Wants=libvirtd.service
+Requires=virt-guest-shutdown.target
+After=network.target
+After=time-sync.target
+After=libvirtd.service
+After=virt-guest-shutdown.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/libvirt-guests
+ExecStart=/usr/libexec/guests.order.sh "/etc/guests.boot.order" start
+ExecStop=/usr/libexec/libvirt-guests.sh "/etc/guests-boot-order" shutdown
+Type=oneshot
+RemainAfterExit=yes
+StandardOutput=journal+console
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target
