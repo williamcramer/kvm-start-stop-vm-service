@@ -12,4 +12,4 @@ It waits until the vm's are active, then kicks off the next in sequence.
 
 On shutdown the service tries to shut down the vm's in a specific order, times out after a number of seconds and destroys the vm. You can change the time out by modifiying the shell script.
 
-Several words of warning - I know very little about Linux, shell scripting, services or cats so this is an exeriment for my own use. If you rely on it, test, test, then test it again, then ask your cat to test it.
+Several words of warning - I know very little about Linux, shell scripting, services or cats so this is an experiment for my own use. If you rely on it, test, test, then test it again, then ask your cat to test it.
